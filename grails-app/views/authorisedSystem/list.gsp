@@ -45,13 +45,13 @@
                                 <td><div class="hostname" host="${authorisedSystemInstance.host}"><i class="fa fa-cog fa-spin"></i></div></td>
                                 <td>${authorisedSystemInstance.description}</td>
                                 <td>
-                                    <a href="${createLink(action:'edit', id:authorisedSystemInstance.id)}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></a>
+                                    <a href="${createLink(action:'edit', id:authorisedSystemInstance.id)}" class="btn btn-default btn-sm"><i class="icon-edit"></i></a>
                                 </td>
                             </tr>
                         </g:each>
                         </tbody>
                     </table>
-                    <div class="text-center">
+                    <div class="pagination">
                         <hf:paginate total="${authorisedSystemInstanceTotal}" params="${params}" />
                     </div>
                 </div>

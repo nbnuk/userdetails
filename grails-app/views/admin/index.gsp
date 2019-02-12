@@ -17,7 +17,7 @@
                 <li><g:link class="btn btn-default" controller="authorisedSystem" action="list">Authorised systems</g:link></li>
                 <li><g:link class="btn btn-default" controller="admin" action="bulkUploadUsers">Bulk create user accounts</g:link></li>
                 <li><g:link class="btn btn-default" controller="admin" action="exportUsers">Export users to CSV file</g:link></li>
-                <li><g:link class="btn btn-default" controller="alaAdmin" action="index">ALA admin page</g:link></li>
+                <li><g:link class="btn btn-default" controller="alaAdmin" action="index">Atlas admin page</g:link></li>
             </ul>
         </div>
     </div>

@@ -48,7 +48,7 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="text-center">
+			<div class="pagination">
 				<hf:paginate total="${roleInstanceTotal}" params="${params}" />
 			</div>
 		</div>

@@ -18,7 +18,7 @@
                      Update your profile
                 </g:link>
             </li>
-            <li>
+            <!-- <li>
                 <a href="${grailsApplication.config.sightings.url}">
                      View your timeline of sightings recorded through the Atlas
                 </a>
@@ -32,7 +32,7 @@
                 <a href="${grailsApplication.config.volunteer.url}">
                     View your tasks on the DigiVol Portal
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a href="${grailsApplication.config.lists.url}">
                     View your uploaded species lists
@@ -63,6 +63,7 @@
             </g:if>
         </ul>
 
+        <!--
         <h3>External site linkages</h3>
         <div class="well well-small">
             <h4>Flickr</h4>
@@ -92,7 +93,7 @@
                     <oauth:connect provider="flickr">Link to my Flickr account</oauth:connect>
                 </span>
             </g:else>
-        </div>
+        </div> -->
     </div>
 </div>
 </body>

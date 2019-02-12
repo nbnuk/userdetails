@@ -82,7 +82,7 @@
     </table>
 
     <g:if test="${!q}">
-        <div class="text-center">
+        <div class="pagination">
             <hf:paginate total="${userInstanceTotal}" params="[q:q]"/>
         </div>
     </g:if>
