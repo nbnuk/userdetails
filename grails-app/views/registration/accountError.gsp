@@ -3,7 +3,7 @@
 <head>
     <meta name="layout" content="${grailsApplication.config.skin.layout}"/>
     <meta name="section" content="home"/>
-    <title>ALA Account Error</title>
+    <title>NBN Atlas Account Error</title>
     <asset:stylesheet src="application.css" />
 </head>
 <body>

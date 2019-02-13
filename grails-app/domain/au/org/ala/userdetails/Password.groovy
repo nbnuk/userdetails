@@ -32,5 +32,6 @@ class Password implements Serializable {
     }
     static constraints = {
         status nullable: false
+        expiry nullable: true
     }
 }

@@ -38,7 +38,7 @@ class PasswordService {
 
            boolean isBcrypt = passwordEncoderType.equalsIgnoreCase(BCRYPT_ENCODER_TYPE)
 
-           def encoder = isBcrypt ? new BcryptPasswordEncoder(bcryptStrength) : new LegacyPasswordEncoder(legacyAlgorithm, legacySalt, true)
+           def encoder = isBcrypt ? new BcryptPasswordEncoder(bcryptStrength) : new LegacyPasswordEncoder(legacySalt, legacyAlgorithm, true)
            def encodedPassword = encoder.encode(newPassword)
 
            //reuse object if old password

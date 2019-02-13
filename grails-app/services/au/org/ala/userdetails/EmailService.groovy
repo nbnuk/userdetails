@@ -20,7 +20,7 @@ class EmailService {
         if (!emailBody) {
             emailBody =
 """
-        Please click the link below to reset your ALA password.
+        Please click the link below to reset your NBN Atlas password.
         This will take you to a form where you can provide a new
         password for your account.
 

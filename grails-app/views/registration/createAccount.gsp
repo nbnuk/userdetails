@@ -68,7 +68,7 @@
                     <a href="${grailsApplication.config.privacyPolicy}">Privacy Policy</a>.
                 </p>
                 <p>
-                    Your email address will be your ALA account login.
+                    Your email address will be your NBN Atlas account login.
                     <g:if test="${!edit}">
                         An &quot;account activation&quot; link will be
                         emailed to the address provided. You need click this link, in order to complete the
