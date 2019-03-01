@@ -40,6 +40,8 @@ class UrlMappings {
         "/admin/"(controller:'admin', action: 'index')
         "/admin/webservices"(controller:'admin', action: 'webservices')
 
+        name fixUserList: "/admin/user/list"(controller: "user", action: "list")
+
 //        "/admin/$controller"()
 //        "/admin/$controller/$action?"()
         "/admin/$controller/$action?/$id?"()

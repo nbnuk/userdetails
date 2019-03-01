@@ -34,13 +34,11 @@
         </div>
 
         <div class="form-group">
-            <label for="state">State/territory</label>
+            <label for="state">County</label>
             <g:select id="state" name="state" class="form-control"
                       value="${props?.state}"
-                      keys="['N/A', 'ACT', 'NSW', 'WA', 'VIC', 'SA', 'TAS', 'NT', 'QLD']"
-                      from="['N/A', 'Australian Capital Territory', 'New South Wales',
-                              'Western Australia', 'Victoria', 'South Australia', 'Tasmania',
-                              'Northern Territory', 'Queensland']"
+                      keys="${stateMap?.keySet()}"
+                      from="${stateMap?.values()}"
             />
         </div>
 

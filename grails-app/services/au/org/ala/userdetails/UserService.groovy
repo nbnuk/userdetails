@@ -6,6 +6,7 @@ import au.org.ala.auth.PasswordResetFailedException
 import grails.converters.JSON
 import grails.plugin.cache.Cacheable
 import grails.util.Environment
+import grails.util.Metadata
 import org.apache.http.HttpStatus
 
 import java.sql.Timestamp
@@ -346,5 +347,37 @@ class UserService {
         jsonMap.totalUsersOneYearAgo = User.countByLockedAndActivatedAndCreatedLessThan(false, true, oneYearAgoTimeStamp)
         log.debug "jsonMap = ${jsonMap as JSON}"
         jsonMap
+    }
+
+    def retrieveMapOfStates(){
+
+        def appName = Metadata.current.'app.name'?:'userdetails'
+        def configPath = "/data/${appName}/config/states.properties"
+
+        //read the file which is in properties file format
+        if(new File(configPath).exists()){
+            def states = ['N/A':'N/A']
+            new File(configPath).readLines().each { line ->
+                int idx = line.indexOf('=')
+                if(idx > 0){
+                    states[line.substring(0, idx)] = line.substring(idx + 1)
+                }
+            }
+            states
+        } else {
+            def defaultStateList =
+                    [
+                            'N/A':'N/A',
+                            'ACT' : 'Australian Capital Territory',
+                            'NSW' : 'New South Wales',
+                            'WA': 'Western Australia',
+                            'VIC':'Victoria',
+                            'SA':'South Australia',
+                            'TAS':'Tasmania',
+                            'NT':'Northern Territory',
+                            'QLD':'Queensland'
+                    ]
+            defaultStateList
+        }
     }
 }

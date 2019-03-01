@@ -23,11 +23,14 @@ class RegistrationController {
         redirect(action: 'createAccount')
     }
 
-    def createAccount() {}
+    def createAccount() {
+        [stateMap:userService.retrieveMapOfStates()]
+    }
 
     def editAccount() {
         def user = userService.currentUser
-        render(view: 'createAccount', model: [edit: true, user: user, props: user?.propsAsMap()])
+        render(view: 'createAccount', model: [edit: true, user: user, props: user?.propsAsMap(),
+                                              stateMap:userService.retrieveMapOfStates()])
     }
 
     def passwordReset() {
@@ -158,7 +161,7 @@ class RegistrationController {
             //create user account...
             if (!params.email || userService.isEmailRegistered(params.email)) {
                 def inactiveUser = !userService.isActive(params.email)
-                render(view: 'createAccount', model: [edit: false, user: params, props: params, alreadyRegistered: true, inactiveUser: inactiveUser])
+                render(view: 'createAccount', model: [edit: false, user: params, props: params, alreadyRegistered: true, inactiveUser: inactiveUser, stateMap:userService.retrieveMapOfStates()])
             } else {
 
                 try {
@@ -184,7 +187,7 @@ class RegistrationController {
 
     def accountCreated() {
         def user = User.get(params.id)
-        render(view: 'accountCreated', model: [user: user])
+        render(view: 'accountCreated', model: [user: user, stateMap:userService.retrieveMapOfStates()])
     }
 
     def forgottenPassword() {}
@@ -194,7 +197,7 @@ class RegistrationController {
         //check the activation key
         if (user.tempAuthKey == params.authKey) {
             userService.activateAccount(user)
-            render(view: 'accountActivatedSuccessful', model: [user: user])
+            render(view: 'accountActivatedSuccessful', model: [user: user, stateMap:userService.retrieveMapOfStates()])
         } else {
             log.error('Auth keys did not match for user : ' + params.userId + ", supplied: " + params.authKey + ", stored: " + user.tempAuthKey)
             render(view: "accountError")
