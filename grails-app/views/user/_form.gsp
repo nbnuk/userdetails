@@ -43,11 +43,6 @@
         </div>
 
         <div class="form-group">
-            <label for="telephone">Telephone</label>
-            <input id="telephone" name="telephone" type="text" class="form-control" value="${props?.telephone}" />
-        </div>
-
-        <div class="form-group">
             <label for="primaryUserType">Primary usage</label>
             <input id="primaryUserType" name="primaryUserType" type="text" class="form-control"
                    value="${props?.primaryUserType}"
