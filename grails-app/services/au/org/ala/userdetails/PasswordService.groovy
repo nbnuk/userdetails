@@ -58,7 +58,7 @@ class PasswordService {
 
     String generatePassword(user){
        //generate a new password
-       def newPassword = RandomStringUtils.random(10)
+       def newPassword = RandomStringUtils.random(10, true, true)
 
        resetPassword(user, newPassword)
        newPassword
