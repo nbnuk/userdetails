@@ -4,6 +4,8 @@ import au.org.ala.auth.PreAuthorise
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.multipart.MultipartHttpServletRequest
 
+import javax.servlet.http.Cookie
+
 @PreAuthorise
 class AdminController {
 

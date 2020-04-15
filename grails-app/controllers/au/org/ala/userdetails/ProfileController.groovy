@@ -5,6 +5,8 @@ import com.github.scribejava.core.model.*
 import com.github.scribejava.core.oauth.OAuthService
 import org.springframework.web.context.request.RequestContextHolder
 
+import javax.servlet.http.Cookie
+
 class ProfileController {
 
     def authService
@@ -14,6 +16,14 @@ class ProfileController {
 
     def index() {
 
+        /* log.info("here xxx")
+        if (grailsApplication.config.localhost?.fakeuser?:'' == 'true') {
+            def cookie = new Cookie("ALA-Auth", "r.roberts@nbn.org.uk") // RR test ***
+            cookie.path = '/'
+            //cookie.maxAge = 0
+            response.addCookie(cookie)
+            request.cookies.each { println "${it.name} == ${it.value}, domain = ${it.domain}" }
+        } */
         def user = userService.currentUser
 
         if (user) {

@@ -235,24 +235,28 @@ class UserService {
 
         if (user) {
             // First need to delete any user properties
-            def userProperties = UserProperty.findAllByUser(user)
-            userProperties.each { userProp ->
-                userProp.delete()
-            }
+            UserProperty.executeUpdate("delete UserProperty where user = ${user.id}")
+            //def userProperties = UserProperty.findAllByUser(user)
+            //userProperties.each { userProp ->
+            //    userProp.delete()
+            //}
             // Then delete any roles
-            def userRoles = UserRole.findAllByUser(user)
-            userRoles.each { userRole ->
-                userRole.delete()
-            }
+            UserRole.executeUpdate("delete UserRole where user= ${user.id}")
+            //def userRoles = UserRole.findAllByUser(user)
+            //userRoles.each { userRole ->
+            //    userRole.delete()
+            //}
 
             // Delete password
-            def passwords = Password.findAllByUser(user)
-            passwords.each { password ->
-                password.delete()
-            }
+            Password.executeUpdate("delete Password where user = ${user.id}")
+            //def passwords = Password.findAllByUser(user)
+            //passwords.each { password ->
+            //    password.delete()
+            //}
 
             // and finally delete the use object
-            user.delete()
+            User.executeUpdate("delete User where id = ${user.id}")
+            //user.delete()
         }
 
     }

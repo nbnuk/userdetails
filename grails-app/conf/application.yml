@@ -145,6 +145,8 @@ environments:
     development:
         server:
             contextPath: '/userdetails'
+            port: 8090
+            host: "reuben.local"
         grails:
             serverURL: "http://devt.ala.org.au:8080/userdetails"
             mail:
