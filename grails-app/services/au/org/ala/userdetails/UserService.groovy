@@ -227,8 +227,7 @@ class UserService {
         (new UserProperty(user: user, property: 'organisation', value: params.organisation ?: '')).save(flush: true)
         (new UserProperty(user: user, property: 'telephone', value: params.telephone ?: '')).save(flush: true)
         (new UserProperty(user: user, property: 'state', value: params.state ?: '')).save(flush: true)
-        (new UserProperty(user: user, property: 'primaryUserType', value: params.primaryUserType ?: '')).save(flush: true)
-        (new UserProperty(user: user, property: 'secondaryUserType', value: params.secondaryUserType ?: '')).save(flush: true)
+        (new UserProperty(user: user, property: 'userType', value: params.userType ?: '')).save(flush: true)
     }
 
     def deleteUser(User user) {
@@ -383,5 +382,19 @@ class UserService {
                     ]
             defaultStateList
         }
+    }
+
+    def retrieveArrayOfUserTypes(){
+        def appName = Metadata.current.'app.name'?:'userdetails'
+        def configPath = "/data/${appName}/config/userTypes.list"
+
+        def userTypes = []
+        if(new File(configPath).exists()) {
+            new File(configPath).readLines().each { userTypes << it }
+        } else {
+            userTypes = ["None available"]
+        }
+
+        userTypes
     }
 }

@@ -24,13 +24,21 @@ class RegistrationController {
     }
 
     def createAccount() {
-        [stateMap:userService.retrieveMapOfStates()]
+        [
+                stateMap: userService.retrieveMapOfStates(),
+                userTypeMap: userService.retrieveArrayOfUserTypes()
+        ]
     }
 
     def editAccount() {
         def user = userService.currentUser
-        render(view: 'createAccount', model: [edit: true, user: user, props: user?.propsAsMap(),
-                                              stateMap:userService.retrieveMapOfStates()])
+        render(view: 'createAccount', model: [
+                edit: true,
+                user: user,
+                props: user?.propsAsMap(),
+                stateMap: userService.retrieveMapOfStates(),
+                userTypeMap: userService.retrieveArrayOfUserTypes()
+        ])
     }
 
     def passwordReset() {
