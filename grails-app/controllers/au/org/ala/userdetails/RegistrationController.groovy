@@ -169,7 +169,7 @@ class RegistrationController {
             //create user account...
             if (!params.email || userService.isEmailRegistered(params.email)) {
                 def inactiveUser = !userService.isActive(params.email)
-                render(view: 'createAccount', model: [edit: false, user: params, props: params, alreadyRegistered: true, inactiveUser: inactiveUser, stateMap:userService.retrieveMapOfStates()])
+                render(view: 'createAccount', model: [edit: false, user: params, props: params, alreadyRegistered: true, inactiveUser: inactiveUser, stateMap:userService.retrieveMapOfStates(), userTypeMap: userService.retrieveArrayOfUserTypes()])
             } else {
 
                 try {
@@ -195,7 +195,7 @@ class RegistrationController {
 
     def accountCreated() {
         def user = User.get(params.id)
-        render(view: 'accountCreated', model: [user: user, stateMap:userService.retrieveMapOfStates()])
+        render(view: 'accountCreated', model: [user: user, stateMap:userService.retrieveMapOfStates(), userTypeMap: userService.retrieveArrayOfUserTypes()])
     }
 
     def forgottenPassword() {}
@@ -205,7 +205,7 @@ class RegistrationController {
         //check the activation key
         if (user.tempAuthKey == params.authKey) {
             userService.activateAccount(user)
-            render(view: 'accountActivatedSuccessful', model: [user: user, stateMap:userService.retrieveMapOfStates()])
+            render(view: 'accountActivatedSuccessful', model: [user: user, stateMap:userService.retrieveMapOfStates(), userTypeMap: userService.retrieveArrayOfUserTypes()])
         } else {
             log.error('Auth keys did not match for user : ' + params.userId + ", supplied: " + params.authKey + ", stored: " + user.tempAuthKey)
             render(view: "accountError")

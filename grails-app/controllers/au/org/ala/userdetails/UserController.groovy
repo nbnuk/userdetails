@@ -75,7 +75,7 @@ class UserController {
             redirect(action: "list")
             return
         }
-        [userInstance: userInstance, props:userInstance.propsAsMap(), stateMap:userService.retrieveMapOfStates()]
+        [userInstance: userInstance, props:userInstance.propsAsMap(), stateMap:userService.retrieveMapOfStates(), userTypeMap: userService.retrieveArrayOfUserTypes()]
     }
 
     def update(Long id, Long version) {

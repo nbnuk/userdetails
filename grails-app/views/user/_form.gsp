@@ -43,23 +43,15 @@
         </div>
 
         <div class="form-group">
-            <label for="primaryUserType">Primary usage</label>
-            <input id="primaryUserType" name="primaryUserType" type="text" class="form-control"
-                   value="${props?.primaryUserType}"
-                   data-provide="typeahead"
-                   data-items="20"
-                   data-source='["Amateur naturalist","Amateur photographer","Biodiversity Research","Biogeographer","Biologist","Botanist","Bush Regenerator","BushCare leader","Citizen scientist","Collection manager","Collection technician","Communications","Conservation Planner","Consultant","Data manager","Database Manager","Eco Tourism","Ecologist","Education","Education programs developer","Entomologist","Environmental Officer","Environmental Scientist","Farming","Field Researcher","Forester","Geochemist","GIS visualisation","Identification","IT specialist","Land manager","Land owner","Librarian","Mycologist ","Naturalist","Observer","Park Ranger","Pest control","Pest Identification","PhD Student","Policy developer","Predicting distribution","Researcher","Science communicator","Scientific Illustrator","Scientist","Student","Taxonomist","Teacher","Veterinary Pathologist","Volunteer","Volunteer Digitizer","Writer","Zoologist"]'
-                   data-validation-engine="validate[required]"
-            />
-        </div>
-
-        <div class="form-group">
-            <label for="secondaryUserType">Secondary usage</label>
-            <input id="secondaryUserType" name="secondaryUserType" type="text" class="form-control"
-                   value="${props?.secondaryUserType}"
-                   data-provide="typeahead" data-items="20"
-                   data-source='["Amateur naturalist","Amateur photographer","Biodiversity Research","Biogeographer","Biologist","Botanist","Bush Regenerator","BushCare leader","Citizen scientist","Collection manager","Collection technician","Communications","Conservation Planner","Consultant","Data manager","Database Manager","Eco Tourism","Ecologist","Education","Education programs developer","Entomologist","Environmental Officer","Environmental Scientist","Farming","Field Researcher","Forester","Geochemist","GIS visualisation","Identification","IT specialist","Land manager","Land owner","Librarian","Mycologist ","Naturalist","Observer","Park Ranger","Pest control","Pest Identification","PhD Student","Policy developer","Predicting distribution","Researcher","Science communicator","Scientific Illustrator","Scientist","Student","Taxonomist","Teacher","Veterinary Pathologist","Volunteer","Volunteer Digitizer","Writer","Zoologist"]'
-                   data-validation-engine="validate[required]"
+            <label for="userType">Primary User Type</label>
+            <g:select id="userType" name="userType"
+                      class="form-control"
+                      value="${props?.userType}"
+                      keys="${userTypeMap}"
+                      from="${userTypeMap}"
+                      required="true"
+                      data-validation-engine="validate[required]"
+                      noSelection="${['':'']}"
             />
         </div>
 
