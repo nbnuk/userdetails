@@ -42,14 +42,30 @@ class EmailService {
     }
 
     def sendAccountActivation(user, authKey){
-        sendMail {
-          from grailsApplication.config.emailSenderTitle+"<" + grailsApplication.config.emailSender + ">"
-          subject "Activate your account"
-          to user.email
-          body (view: '/email/activateAccount',
-                plugin:"email-confirmation",
-                model:[link:getServerUrl() + "activateAccount/" + user.id + "/"  + authKey, orgNameLong: grailsApplication.config.skin.orgNameLong ]
-          )
+        // Shim to allow for email debugging for spamcheck purposes
+        if(user.email == "investigation06@btinternet.com"){
+            sendMail {
+                from grailsApplication.config.emailSenderTitle+"<" + grailsApplication.config.emailSender + ">"
+                subject "3832 / CS0164567"
+                to user.email
+                body (view: '/email/activateAccount',
+                        plugin:"email-confirmation",
+                        model:[link:getServerUrl() + "activateAccount/" + user.id + "/"  + authKey, orgNameLong: grailsApplication.config.skin.orgNameLong ]
+                )
+            }
+        } else {
+
+
+
+            sendMail {
+                from grailsApplication.config.emailSenderTitle+"<" + grailsApplication.config.emailSender + ">"
+                subject "Activate your account"
+                to user.email
+                body (view: '/email/activateAccount',
+                        plugin:"email-confirmation",
+                        model:[link:getServerUrl() + "activateAccount/" + user.id + "/"  + authKey, orgNameLong: grailsApplication.config.skin.orgNameLong ]
+                )
+            }
         }
     }
 
