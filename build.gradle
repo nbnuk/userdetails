@@ -13,11 +13,11 @@ buildscript {
     }
 }
 
- plugins {
+plugins {
     id "com.gorylenko.gradle-git-properties" version "1.4.17"
 }
 
-version "2.4.0-PLUGIN-NBN-0-0-0-SNAPSHOT"
+version "2.4.0-PLUGIN-NBN-0-0-1-SNAPSHOT"
 group "au.org.ala"
 
 apply plugin:"eclipse"
@@ -143,7 +143,7 @@ bootRun {
 }
 
 bootRepackage {
-    enabled = true
+    enabled = false
     executable = true
     classifier = 'exec'
 }
