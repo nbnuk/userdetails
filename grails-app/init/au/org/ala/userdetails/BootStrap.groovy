@@ -8,7 +8,7 @@ class BootStrap {
     def customObjectMarshallers
 
     def init = { servletContext ->
-        log.info("Running bootstrap queries")
+        log.info("Running1 bootstrap queries")
 
         messageSource.setBasenames(
                 "file:///var/opt/atlas/i18n/userdetails/messages",

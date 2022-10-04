@@ -25,7 +25,7 @@ class EmailService {
                 emailBody1 = "We have received a password reset request. You can reset your password by clicking the link below.  " +
                         "This will take you to a form where you can provide a new password for your account."
             } else { // bulk load users
-                emailBody1 = "Welcome to the ALA!"
+                emailBody1 = "Welcome to the NBN Atlas!"
             }
         }
         if (!password) {
