@@ -8,6 +8,7 @@ branches:
     - master
     - hotfix
     - grails3
+    - master-nbn
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -22,5 +23,5 @@ after_success:
   - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && travis_retry ./gradlew publish'
 env:
   global:
-  - secure: SXv/tzFEVilHYotkGZG7wSRM5fNSJmNaZX2x9o+AgLSZWFk2ZEqkgYP5utIMURghO+XW1i6GSBjpopcTttMvGC3+m5B6LLrmgSMiLRmzji34XfKpLysY3U7nU24F6aRDf+HvmyLtuj/tOXG+aD9odMjJ2rOONEEri6UcIP7bSOg=
-  - secure: bulQ1yxzUFsM/VO/B/AM6WLRQ0ni+UJbEGKuxRB/3GfEHAnY5NLYX60t1gZY1Mv8Rg0t0/dRttniw7dVytvuIYMbI+gsY+eq6FTSgRjUUP3Y0hJd4B6JKnEQWPzR10s8HLiWdYIBUx3jL66kUhfQavgFjRnJKQ4Ql8pgSmez/9k=
+  - secure: Wc5wae/X4qAOFJnH92UU5gaqsYVYYPnKFa1cl9OHa+zVjHCot7gn8YMog78cW1+FkiSkzhqhrfQOyeZ02KkKzrjTrZSALWiD2VVFFnJZKNTUL/DX+yBnt9h+jZXaiS0/eh1+7FxN+hpYuoAEOqnNI0GESwInxy8US6vPT70fLKa3XGis/+ODD9yvfRtwNfe1cuWVRjlbhnooXWU2P+eUR5NtbjQ7T1xJfiesppjEebWRaWfjBvK3HvRZmgyRXWdoeXPu5Ro5dFhMKUqw1EwXJE4r6Xq3Zp106TFB1bY+ppd3NA8n/AteuQtod6V74VTx4E57xp+SMoHEU1BLSXHUOLLSnNDhQSqMSYbYLDYlIcqLyclHA9MWzTPpfZkYMt8Ju1EjcXAsXBl+jTVWISp3Y96Fx1U2xtLRZYEzZ5XxczPTUGrs82FBAmig4536ivw56jPoeFPMThRt+3lQ0zPoDiXb6WxJpnTVua5nJU+8g0eHeb+8Zb/NyLlA7bGrcbpYUE0/n63qo6pOUvNZAjNgTfJAGdNuHN9iLdLAnVVtzfKqnSxrps5ffrn9WsHZjiDao/txz+jBHz+zxO83dVMoiEkXoPpTUUo+6vIU0uX8BOw5e/J32tcA8WZ4Q/9Y7NY91u8CpHMk56RDfBg5HtHJeDLv+pkGkDdzY2tI13Kgg7Q=
+  - secure: qE0ZvohtvS5YLDzkVOqUQgNRozzxINYOJoT1hYjHebeOq/kpvU5ZpcDAAZq286VSK4fNWc4YGSKFtwwhBTzej9ip2DAHopR21sPMd/6/lfZp1mWmzlPmXdCnQYCVvFC1O0h5qseKR+u0imhPEJvNjfKqcbr3OKRJ5uLfZIKY7+2216lyMt1wsuLugtX8H4SF/6Q8OsZVpjC/GrXZEJpp56gOKB8z6x+QTxvF69kv2tvFmckRRHoRL7PinMzMCdJP3Im65P6lmcdPZBqmjCiSRkwkYjdo7tCV50tR85rQ356jqHM4FOr8bxJ3qH3q1BaNIN+ofGlAo1ZiAr99mcdyiZdsytwc14qLV3Nrg3MZ06shzdQwmtjmhzF0y0We7JYuDSvq7QnYoGRM2yWZ/B/zO9cEW1vlYl0m7OWYA+xeVi8V7hFuhY1EA+SONPhLQ67VhptMPu1OQSvAe6zJZnlvwGEUGSusoGH2fb/AgQwT1PoKxMKejN01n2sFnj9Yi/h1cd6Ftuk4n2FPBLwjfttPznTK1RP/nHMqF0NhNK8Cmv3Lic8tZtVXK299/29P1VcjXg/mXCTrHC8JGSRXULSHtlWuHMhsXfoXTDs84UO6saCgjJx326ZAab4IxiUyfQkJhmaZUt+O2IN/pDQg13LjpljhSu5GVvTLLmpM8/DqIgA=
