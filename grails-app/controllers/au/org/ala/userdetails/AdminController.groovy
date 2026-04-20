@@ -22,6 +22,8 @@ import com.opencsv.RFC4180ParserBuilder
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.multipart.MultipartHttpServletRequest
 
+import static org.apache.http.HttpStatus.SC_UNAUTHORIZED
+
 @PreAuthorise
 class AdminController {
 
@@ -32,7 +34,18 @@ class AdminController {
     def profileService
     def authorisedSystemService
 
-    def index() {}
+    @PreAuthorise(allowedRoles = ["ROLE_ADMIN", "ROLE_USER_CREATOR"])
+    def index() {
+        def user = userService.currentUser
+
+        if (user) {
+            def isBiosecurityAdmin = request.isUserInRole("ROLE_USER_CREATOR")
+            [isBiosecurityAdmin: isBiosecurityAdmin]
+        } else {
+            log.info('my-profile without a user?')
+            render(status: SC_UNAUTHORIZED)
+        }
+    }
 
     def resetPasswordForUser(){
     }
@@ -148,7 +161,9 @@ class AdminController {
     }
 
     def surveyResults() {
-        def results = userService.countByProfileAttribute('affiliation', null, request.locale)
+        def startDate = params.date('since', ['yyyy-MM-dd', 'yyyyMMdd'])
+        def endDate = params.date('until', ['yyyy-MM-dd', 'yyyyMMdd'])
+        def results = userService.countByProfileAttribute('affiliation', startDate, endDate, request.locale)
         def csvWriter = new CSVWriterBuilder(response.writer)
                 .withParser(new RFC4180ParserBuilder().build())
                 .build()

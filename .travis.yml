@@ -5,8 +5,9 @@ sudo: false
 branches:
   only:
     - dev
+    - develop
     - master
-    - hotfix
+    - /^hotfix.*$/
     - grails3
     - experimental_jwt
     - /^feature.*$/
