@@ -44,9 +44,10 @@ import java.util.stream.Collectors
 
 @Slf4j
 class Application extends GrailsAutoConfiguration {
-    static void main(String[] args) {
-        GrailsApp.run(Application, args)
-    }
+    // Commented out - this is a plugin, not a standalone app
+    // static void main(String[] args) {
+    //     GrailsApp.run(Application, args)
+    // }
 
     @Bean
     DataSourceHealthIndicator dataSourceHealthIndicator(DataSource dataSource) {
