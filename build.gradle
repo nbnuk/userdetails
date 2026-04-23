@@ -78,7 +78,7 @@ dependencies {
     implementation "org.hibernate:hibernate-jcache"
     runtimeOnly 'org.ehcache:ehcache'
     implementation "org.grails.plugins:gsp"
-    profile "org.grails.profiles:plugin"
+    profile "org.grails.profiles:web-plugin"
     runtimeOnly "org.glassfish.web:el-impl:2.2.1-b05"
 //    runtimeOnly "com.h2database:h2"
 //    runtimeOnly "org.apache.tomcat:tomcat-jdbc"
