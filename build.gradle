@@ -78,7 +78,7 @@ dependencies {
     implementation "org.hibernate:hibernate-jcache"
     runtimeOnly 'org.ehcache:ehcache'
     implementation "org.grails.plugins:gsp"
-    profile "org.grails.profiles:plugin"
+    profile "org.grails.profiles:web-plugin"
     runtimeOnly "org.glassfish.web:el-impl:2.2.1-b05"
 //    runtimeOnly "com.h2database:h2"
 //    runtimeOnly "org.apache.tomcat:tomcat-jdbc"
@@ -178,7 +178,7 @@ publishing {
     repositories {
         maven {
             name 'Nexus'
-            url "https://nexus.ala.org.au/content/repositories/${project.version.endsWith('-SNAPSHOT') ? 'snapshots' : 'releases' }"
+            url "https://repository.gbif.org/repository/${project.version.endsWith('-SNAPSHOT') ? 'uk-nbn-snapshots' : 'uk-nbn-releases' }"
             credentials {
                 username = System.getenv('TRAVIS_DEPLOY_USERNAME')
                 password = System.getenv('TRAVIS_DEPLOY_PASSWORD')
