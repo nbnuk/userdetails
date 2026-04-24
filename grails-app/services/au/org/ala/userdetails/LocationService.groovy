@@ -42,25 +42,22 @@ class LocationService {
 
     Map<String,String> affiliationSurvey(Locale locale) {
         // Use ala.affiliations.$key for i18N
+        //NBN version:
         [
-                'community': messageSource.getMessage('ala.affiliations.community', null, 'Community based organisation – club, society, landcare', locale),
-                'education': messageSource.getMessage('ala.affiliations.education', null, 'Education – primary and secondary schools, TAFE, environmental or wildlife education', locale),
-                'firstNationsOrg': messageSource.getMessage('ala.affiliations.firstNationsOrg', null, 'First Nations organisation', locale),
-                'government': messageSource.getMessage('ala.affiliations.government', null, 'Government – federal, state and local', locale),
-                'industry': messageSource.getMessage('ala.affiliations.industry', null, 'Industry, commercial, business or retail', locale),
-                'mri': messageSource.getMessage('ala.affiliations.mri', null, 'Medical Research Institute (MRI)', locale),
-                'museum': messageSource.getMessage('ala.affiliations.museum', null, 'Museum, herbarium, library, botanic gardens', locale),
-                'nfp': messageSource.getMessage('ala.affiliations.nfp', null, 'Not for profit', locale),
-                'otherResearch': messageSource.getMessage('ala.affiliations.otherResearch', null, 'Other research organisation, unaffiliated researcher', locale),
-                'private': messageSource.getMessage('ala.affiliations.private', null, 'Private user', locale),
-                'publiclyFunded': messageSource.getMessage('ala.affiliations.publiclyFunded', null, 'Publicly Funded Research Agency (PFRA) e.g. CSIRO, AIMS, DSTO', locale),
-                'uniResearch': messageSource.getMessage('ala.affiliations.uniResearch', null, 'University – faculty, researcher', locale),
-                'uniGeneral': messageSource.getMessage('ala.affiliations.uniGeneral', null, 'University - general staff, administration, management', locale),
-                'uniStudent': messageSource.getMessage('ala.affiliations.uniStudent', null, 'University – student', locale),
-                'volunteer': messageSource.getMessage('ala.affiliations.volunteer', null, 'Volunteer, citizen scientist', locale),
-                'wildlife': messageSource.getMessage('ala.affiliations.wildlife', null, 'Wildlife park, sanctuary, zoo, aquarium, wildlife rescue', locale),
-                'other': messageSource.getMessage('ala.affiliations.other', null, 'Other', locale),
-                'disinclinedToAcquiesce': messageSource.getMessage('ala.affiliations.disinclinedToAcquiesce', null, 'Prefer not to say', locale),
+                'Academia and research': 'Academia and research',
+                'Agriculture, forestry and fishing': 'Agriculture, forestry and fishing',
+                'Artist, journalist, photographer':'Artist, journalist, photographer',
+                'College and university student':'College and university student',
+                'Construction, utilities and technology': 'Construction, utilities and technology',
+                'Ecologist': 'Ecologist',
+                'Environmental consultant': 'Environmental consultant',
+                'LERC staff': 'LERC staff',
+                'Local and national government': 'Local and national government',
+                'Museums, botanical gardens and aquaria': 'Museums, botanical gardens and aquaria',
+                'NGO staff': 'NGO staff',
+                'Personal interest': 'Personal interest',
+                'Recorder and recording scheme': 'Recorder and recording scheme',
+                'Teaching and education': 'Teaching and education'
         ]
     }
 }

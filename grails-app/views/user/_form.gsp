@@ -1,24 +1,9 @@
-%{--
-  - Copyright (C) 2022 Atlas of Living Australia
-  - All Rights Reserved.
-  -
-  - The contents of this file are subject to the Mozilla Public
-  - License Version 1.1 (the "License"); you may not use this file
-  - except in compliance with the License. You may obtain a copy of
-  - the License at http://www.mozilla.org/MPL/
-  -
-  - Software distributed under the License is distributed on an "AS
-  - IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or
-  - implied. See the License for the specific language governing
-  - rights and limitations under the License.
-  --}%
-
 <%@ page import="au.org.ala.userdetails.User" %>
 
 <div class="row">
     <div class="col-md-6">
         <div class="form-group fieldcontain ${hasErrors(bean: userInstance, field: 'firstName', 'error')} ">
-            <label for="firstName">
+            <label for="fi rstName">
                 <g:message code="user.firstName.label" default="First Name"/>
             </label>
             <g:textField name="firstName" class="form-control" value="${userInstance?.firstName}"/>
@@ -38,21 +23,42 @@
             <g:textField name="email" class="form-control" value="${userInstance?.email}"/>
         </div>
 
+        <g:if test="${grailsApplication.config.getProperty('attributes.affiliations.enabled', Boolean, false)}">
+            <div class="form-group">
+                <label for="affiliation"><g:message code="create.account.affiliation" default="What is your primary affiliation?" /> *</label>
+                <g:select id="affiliation" name="affiliation"
+                          class="form-control"
+                          value="${props?.affiliation}"
+                          from="${l.affiliations()}"
+                          optionKey="key"
+                          optionValue="value"
+                          noSelection="${['': message(code:'create.account.choose.affiliation', default: '-- Choose one --')]}"
+                          data-validation-engine="validate[required]"
+                />
+            </div>
+        </g:if>
+
         <div class="form-group">
             <label for="organisation"><g:message code="create.account.organisation" /></label>
             <input id="organisation" name="organisation" type="text" class="form-control" value="${props?.organisation}"/>
         </div>
 
+        <input type="hidden" name="country" value="GB" />
+%{--        <div class="form-group">--}%
+%{--            <label for="country"><g:message code="create.account.country" /></label>--}%
+%{--            <g:select id="country" name="country"--}%
+%{--                      class="form-control chosen-select"--}%
+%{--                      value="${props?.country ?: 'AU'}"--}%
+%{--                      keys="${l.countries()*.isoCode}"--}%
+%{--                      from="${l.countries()*.name}"--}%
+%{--                      noSelection="${['': message(code:'create.account.choose.your.country')]}"--}%
+%{--                      valueMessagePrefix="ala.country."--}%
+%{--            />--}%
+%{--        </div>--}%
+
         <div class="form-group">
-            <label for="country"><g:message code="create.account.country" /></label>
-            <g:select id="country" name="country"
-                      class="form-control chosen-select"
-                      value="${props?.country ?: 'AU'}"
-                      keys="${l.countries()*.isoCode}"
-                      from="${l.countries()*.name}"
-                      noSelection="${['': message(code:'create.account.choose.your.country')]}"
-                      valueMessagePrefix="ala.country."
-            />
+            <label for="city"><g:message code="create.account.city" /></label>
+            <input id="city" name="city" type="text" class="form-control" value="${props?.city}" />
         </div>
 
         <div class="form-group">
@@ -67,10 +73,7 @@
             />
         </div>
 
-        <div class="form-group">
-            <label for="city"><g:message code="create.account.city" /></label>
-            <input id="city" name="city" type="text" class="form-control" value="${props?.city}" />
-        </div>
+
 
 </div>
 <div class="col-md-6 well well-lg">
@@ -92,7 +95,6 @@
 
 <hr/>
 
-<g:if test="${!isBiosecurityAdmin}">
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'userRoles', 'error')} ">
     <label for="userRoles">
         <g:message code="user.userRoles.label" default=" Roles"/>
@@ -120,7 +122,6 @@
                     params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'userRole.label', default: 'UserRole')])}</g:link>
 
 </div>
-</g:if>
 
 </div>
 

@@ -141,3 +141,34 @@ body #main {
 #external-linkages  .d-flex {
     margin-top: 0px;
 }
+
+/* NBN added */
+.page-header-text {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.my-profile-floating-div {
+    overflow: hidden;
+    width: 100%;
+}
+
+.my-profile-icon {
+    float: left;
+    font-size: 2em;
+    margin-right: 15px;
+}
+
+.my-profile-section-content {
+    overflow: hidden;
+}
+
+.my-profile-content-paragraph {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.my-profile-sub-header {
+    margin: 0;
+    margin-bottom: 10px;
+}
