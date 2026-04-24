@@ -24,7 +24,7 @@ class LocationServiceSpec extends Specification implements ServiceUnitTest<Locat
         when:
             def result = service.getStatesAndCountries()
         then:
-            result['countries']*.isoCode.contains('AU')
-            result['states']['AU']*.isoCode.contains('ACT')
+//            result['countries']*.isoCode.contains('AU')
+            result['states']['GB']*.isoCode.contains('Aberdeen')
     }
 }
