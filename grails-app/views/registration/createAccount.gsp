@@ -104,16 +104,16 @@
                 <h2><g:message code="create.account.your.account.title" /></h2>
                 <p>
                     <g:message code="create.account.your.email.will.be.your.account.login" args="[grailsApplication.config.skin.orgNameShort]" />
-                    <g:if test="${grailsApplication.config.getProperty('registration.showAlaMessage')}">
+                    <g:if test="${grailsApplication.config.getProperty('registration.showAlaMessage', Boolean)}">
                         <g:message code="create.account.your.email.will.be.your.account.login.ala" args="[grailsApplication.config.getProperty('registration.resetPasswordArticle'), grailsApplication.config.getProperty('registration.alertArticle')]" />
                     </g:if>
                 </p>
-                <g:if test="${grailsApplication.config.getProperty('registration.showAlaMessage')}">
+                <g:if test="${grailsApplication.config.getProperty('registration.showAlaMessage', Boolean)}">
                     <p><b><g:message code="create.account.your.email.will.be.your.account.confirm.ala" /></b></p>
                 </g:if>
                 <g:if test="${!edit}">
                     <p><g:message code="create.account.activation.description" />
-                    <g:if test="${grailsApplication.config.getProperty('registration.showAlaMessage')}">
+                    <g:if test="${grailsApplication.config.getProperty('registration.showAlaMessage', Boolean)}">
                         <g:message code="create.account.activation.description.ala" args="[grailsApplication.config.getProperty('registration.activationArticle')]" />
                     </g:if></p>
                 </g:if>
